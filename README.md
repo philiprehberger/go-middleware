@@ -122,6 +122,13 @@ mw.ETag()
 | `Compress` | `Compress() Middleware` | Gzip compression |
 | `ETag` | `ETag() Middleware` | ETag generation |
 
+## Development
+
+```bash
+go test ./...
+go vet ./...
+```
+
 ## License
 
 MIT
