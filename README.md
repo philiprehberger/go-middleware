@@ -8,7 +8,7 @@ Composable HTTP middleware collection for Go's `net/http`. No framework required
 
 ## Installation
 
-```sh
+```bash
 go get github.com/philiprehberger/go-middleware
 ```
 
