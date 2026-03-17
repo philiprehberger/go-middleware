@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- Add RequestID middleware for generating and propagating X-Request-ID headers
+- Add BearerAuth middleware for Authorization: Bearer token validation
+- Add Metrics middleware for capturing request method, path, status, and duration
+
 ## 0.1.2
 
 - Add Development section to README

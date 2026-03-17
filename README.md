@@ -30,13 +30,18 @@ func main() {
 	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
 
 	stack := mw.Chain(
+		mw.RequestID,
 		mw.Logger(logger),
 		mw.Recover(),
 		mw.CORS(),
 		mw.SecureHeaders(),
+		mw.BearerAuth(func(token string) error { return nil }),
 		mw.Timeout(10*time.Second),
 		mw.Compress(),
 		mw.ETag(),
+		mw.Metrics(func(method, path string, status int, duration time.Duration) {
+			logger.Info("metrics", "method", method, "path", path, "status", status, "duration", duration)
+		}),
 	)
 
 	mux := http.NewServeMux()
@@ -104,6 +109,33 @@ mw.Compress()
 mw.ETag()
 ```
 
+**Request ID** — Generate or propagate an `X-Request-ID` header. If the incoming request already has one, it is preserved; otherwise a new random ID is generated. The ID is also stored in the request context.
+
+```go
+mw.RequestID
+// Extract from context inside a handler:
+id := mw.RequestIDFromContext(r.Context())
+```
+
+**Bearer Auth** — Validate `Authorization: Bearer <token>` headers using a custom validation function. Returns 401 if missing or invalid.
+
+```go
+mw.BearerAuth(func(token string) error {
+    if token != "expected" {
+        return errors.New("invalid token")
+    }
+    return nil
+})
+```
+
+**Metrics** — Call a function after each request with method, path, status code, and duration.
+
+```go
+mw.Metrics(func(method, path string, status int, duration time.Duration) {
+    log.Printf("%s %s -> %d (%s)", method, path, status, duration)
+})
+```
+
 ## API
 
 | Function | Signature | Description |
@@ -121,6 +153,10 @@ mw.ETag()
 | `Timeout` | `Timeout(d time.Duration) Middleware` | Request timeout |
 | `Compress` | `Compress() Middleware` | Gzip compression |
 | `ETag` | `ETag() Middleware` | ETag generation |
+| `RequestID` | `RequestID(next http.Handler) http.Handler` | Request ID generation/propagation |
+| `RequestIDFromContext` | `RequestIDFromContext(ctx context.Context) string` | Extract request ID from context |
+| `BearerAuth` | `BearerAuth(validate func(string) error) func(http.Handler) http.Handler` | Bearer token authentication |
+| `Metrics` | `Metrics(onRequest func(string, string, int, time.Duration)) func(http.Handler) http.Handler` | Request metrics collection |
 
 ## Development
 
