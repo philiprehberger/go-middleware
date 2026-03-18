@@ -4,7 +4,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/philiprehberger/go-middleware.svg)](https://pkg.go.dev/github.com/philiprehberger/go-middleware)
 [![License](https://img.shields.io/github/license/philiprehberger/go-middleware)](LICENSE)
 
-Composable HTTP middleware collection for Go's `net/http`. No framework required.
+Composable HTTP middleware collection for Go's `net/http`. No framework required
 
 ## Installation
 
