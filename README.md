@@ -136,6 +136,37 @@ mw.Metrics(func(method, path string, status int, duration time.Duration) {
 })
 ```
 
+### Middleware Ordering
+
+```go
+import mw "github.com/philiprehberger/go-middleware"
+
+// Recommended order: recovery → logging → security → business logic
+handler := mw.Chain(
+    mw.Recover(),
+    mw.RequestID,
+    mw.Logger(slog.Default()),
+    mw.CORS(mw.AllowOrigins("*")),
+    mw.BearerAuth(validateToken),
+)(yourHandler)
+```
+
+### Preset Chains
+
+```go
+import mw "github.com/philiprehberger/go-middleware"
+
+// Common API preset
+apiChain := mw.Chain(
+    mw.Recover(),
+    mw.RequestID,
+    mw.Logger(slog.Default()),
+    mw.Timeout(30 * time.Second),
+    mw.CORS(mw.AllowOrigins("*")),
+)
+http.Handle("/api/", apiChain(apiHandler))
+```
+
 ## API
 
 | Function | Signature | Description |

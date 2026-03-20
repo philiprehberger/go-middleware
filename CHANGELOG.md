@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Add middleware ordering guidance to README
+- Add preset chain examples
+
 ## 0.2.0
 
 - Add RequestID middleware for generating and propagating X-Request-ID headers
