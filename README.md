@@ -1,6 +1,6 @@
 # go-middleware
 
-[![CI](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/philiprehberger/go-middleware.svg)](https://pkg.go.dev/github.com/philiprehberger/go-middleware) [![License](https://img.shields.io/github/license/philiprehberger/go-middleware)](LICENSE)
+[![CI](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/philiprehberger/go-middleware.svg)](https://pkg.go.dev/github.com/philiprehberger/go-middleware) [![License](https://img.shields.io/github/license/philiprehberger/go-middleware)](LICENSE) [![Sponsor](https://img.shields.io/badge/sponsor-GitHub%20Sponsors-ec6cb9)](https://github.com/sponsors/philiprehberger)
 
 Composable HTTP middleware collection for Go's `net/http`. No framework required
 
