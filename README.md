@@ -1,6 +1,8 @@
 # go-middleware
 
-[![CI](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/philiprehberger/go-middleware.svg)](https://pkg.go.dev/github.com/philiprehberger/go-middleware) [![License](https://img.shields.io/github/license/philiprehberger/go-middleware)](LICENSE) [![Sponsor](https://img.shields.io/badge/sponsor-GitHub%20Sponsors-ec6cb9)](https://github.com/sponsors/philiprehberger)
+[![CI](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/go-middleware/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/philiprehberger/go-middleware.svg)](https://pkg.go.dev/github.com/philiprehberger/go-middleware)
+[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/go-middleware)](https://github.com/philiprehberger/go-middleware/commits/main)
 
 Composable HTTP middleware collection for Go's `net/http`. No framework required
 
@@ -194,6 +196,24 @@ go test ./...
 go vet ./...
 ```
 
+## Support
+
+If you find this project useful:
+
+⭐ [Star the repo](https://github.com/philiprehberger/go-middleware)
+
+🐛 [Report issues](https://github.com/philiprehberger/go-middleware/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+
+💡 [Suggest features](https://github.com/philiprehberger/go-middleware/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+
+❤️ [Sponsor development](https://github.com/sponsors/philiprehberger)
+
+🌐 [All Open Source Projects](https://philiprehberger.com/open-source-packages)
+
+💻 [GitHub Profile](https://github.com/philiprehberger)
+
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/philiprehberger)
+
 ## License
 
-MIT
+[MIT](LICENSE)
